@@ -72,28 +72,28 @@ PYMODULES = common \
 	    library \
 	    network
 
-ifeq ($(CONFIG_DISABLE_BT),)
-SRCS += $(SRC_DIR)/bluetooth.c
-PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/bluetooth.h
-CFLAGS += $(shell pkg-config --cflags bluez)
-LDLIBS += $(shell pkg-config --libs bluez)
-PYMODULES += bluetooth
-endif
+# ifeq ($(CONFIG_DISABLE_BT),)
+# SRCS += $(SRC_DIR)/bluetooth.c
+# PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/bluetooth.h
+# CFLAGS += $(shell pkg-config --cflags bluez)
+# LDLIBS += $(shell pkg-config --libs bluez)
+# PYMODULES += bluetooth
+# endif
 
-ifeq ($(CONFIG_DISABLE_CAN),)
-SRCS += $(SRC_DIR)/can.c \
-	$(SRC_DIR)/can_netlink.c
-PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/can.h
-CFLAGS += $(shell pkg-config --cflags libsocketcan)
-LDLIBS += $(shell pkg-config --libs libsocketcan)
-endif
+# ifeq ($(CONFIG_DISABLE_CAN),)
+# SRCS += $(SRC_DIR)/can.c \
+#	$(SRC_DIR)/can_netlink.c
+# PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/can.h
+# CFLAGS += $(shell pkg-config --cflags libsocketcan)
+# LDLIBS += $(shell pkg-config --libs libsocketcan)
+# endif
 
-ifeq ($(CONFIG_DISABLE_WIFI),)
-SRCS += $(SRC_DIR)/util.c \
-	$(SRC_DIR)/wifi.c
-PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/wifi.h
-PYMODULES += wifi
-endif
+# ifeq ($(CONFIG_DISABLE_WIFI),)
+# SRCS += $(SRC_DIR)/util.c \
+#	$(SRC_DIR)/wifi.c
+# PUBLIC_HEADERS += $(HEADERS_PUBLIC_DIR)/wifi.h
+# PYMODULES += wifi
+# endif
 
 OBJS = $(SRCS:.c=.o)
 
